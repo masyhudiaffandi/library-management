@@ -7,7 +7,12 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './node_modules/flowbite/**/*.js',
     ],
+
+    daisyui: {
+        themes: ['light'],
+    },
 
     theme: {
         extend: {
@@ -17,5 +22,5 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, require('flowbite/plugin')({charts: true}), require('daisyui')],
 };
