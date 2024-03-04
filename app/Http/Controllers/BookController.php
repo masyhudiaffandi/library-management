@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -25,6 +26,7 @@ class BookController extends Controller
         } else {
             $books = Book::paginate(10);
             $authors = Author::all();
+            $publishers = Publisher::all();
         }
 
         return view('admin.book.book', compact('books', 'authors'));
@@ -79,8 +81,9 @@ class BookController extends Controller
         //
         $book = Book::find($id);
         $authors = Author::all();
+        $publishers = Publisher::all();
 
-        return view('admin.book.edit.book-edit', compact('book', 'authors'));
+        return view('admin.book.edit.book-edit', compact('book', 'authors', 'publishers'));
     }
 
     /**
@@ -96,6 +99,8 @@ class BookController extends Controller
 
         $book = Book::find($id);
         $book->title = $request->title;
+        $book->publisher_id = $request->publisher_id;
+        $book->statuses = $request->statuses;
         $book->author_id = $request->author_id;
         $book->year = $request->year;
         if ($request->file('cover')) {

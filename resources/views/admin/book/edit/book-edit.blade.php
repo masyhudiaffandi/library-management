@@ -30,6 +30,21 @@
                     @include('components.input-data', ['name' => 'year', 'type' => 'text', 'value' => $book->year])
                 </div>
                 <div class="form-group flex flex-col">
+                    <label for="publisher_id">Publisher</label>
+                    <select name="publisher_id" class="rounded-md">
+                        @foreach($publishers as $publisher)
+                            <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group flex flex-col">
+                    <label for="statuses">Status</label>
+                    <select name="statuses" class="rounded-md">
+                            <option value="unpublished">Unpublished</option>
+                            <option value="published">Published</option>
+                    </select>
+                </div>
+                <div class="form-group flex flex-col">
                     <label for="cover">Book Cover</label>
                     @include('components.input-data', ['name' => 'cover', 'type' => 'file'])
                     <img src="{{ asset('storage/'.$book->cover) }}" alt="Book Cover" class="mt-2 rounded-md" style="max-width: 200px;">

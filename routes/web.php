@@ -24,6 +24,7 @@ use App\Http\Controllers\PublihserController;
 // });
 
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/author', [AuthorController::class, 'index']);
     Route::get('admin/publisher', [PublihserController::class, 'index']);
     Route::get('admin/book', [BookController::class, 'index']);
+    Route::get('/', [AnalyticsController::class, 'index']);
 });
 
 require __DIR__.'/auth.php';

@@ -17,6 +17,8 @@
                     <th>Author</th>
                     <th>Cover</th>
                     <th>Year</th>
+                    <th>Status</th>
+                    <th>Publisher</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -27,6 +29,8 @@
                         <td>{{ $book->author->name }}</td>
                         <td><img src="{{ asset('storage/'.$book->cover) }}" alt="{{ $book->title }}" width="50px"></td>
                         <td>{{ $book->year }}</td>
+                        <td>{{ $book->statuses }}</td>
+                        <td>{{ $book->publisher->name }}</td>
                         <td class="actions flex gap-2">
                             @include('components.edit-button', ['edit' => route('book.edit', $book)])
                             @include('components.delete-button', ['destroy' => route('book.destroy', $book), 'data' => 'Book'])

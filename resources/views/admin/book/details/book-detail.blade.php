@@ -16,10 +16,17 @@
             <div class="book-detail-title flex gap-4 items-center">
                 <h1 class="book-detail-title text-3xl">{{ $book->title }}</h1>
                 <kbd class="kbd kbd-sm book-detail-year">{{ $book->year }}</kbd>
+                <kbd class="kbd kbd-sm">Status : {{ $book->statuses }}</kbd>
             </div>
             <div class="book-detail-author flex gap-2 items-center">
                 <img src="{{ asset('storage/'.$book->author->photo) }}" class="w-8 rounded-full" alt="">
                 <p class="book-detail-author text-sm">{{ $book->author->name }}</p>
+            </div>
+            <div class="book-info-text">
+                <p>{{ $book->publisher->name }}</p>
+                <p>{{ $book->publisher->address }}</p>
+                <p>
+                </p>
             </div>
         </div>
     </div>
